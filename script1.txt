@@ -1,0 +1,30 @@
+Feature: The login feature provides a secure way for registered users
+to access more functionalities in the CNN app, which can only be accessed
+when the provide valid login credentials
+
+Scenario: Verify that users can log into the app when they provide valid login details
+Given I am on the login page of the CNN app
+And I enter a valid username
+And I enter a valid password
+And I select the checkbox for my details to be remembered
+When I select the login button
+Then I should be logged in
+And my username should be displayed
+
+Scenario Outline: Verify that users can't log into the app when they provide invalid login details
+Given I am on the login page of the CNN app
+And I enter a <username> username
+And I enter a <password> password
+When I select the login button
+Then I should not be logged in
+And I should remain on the login page 
+And an error message should be displayed
+
+Examples
+| username | password |
+| invalid  | valid    |
+| valid    | invalid  |
+| blank    | blank    |
+| blank    | valid    |
+| valid    | blank    |
+
