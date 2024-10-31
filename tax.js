@@ -21,3 +21,5 @@ function TaxCalculator(taxAmount) {
 
 //Run the application here
 TaxCalculator(50000);
+
+//this is an edit
